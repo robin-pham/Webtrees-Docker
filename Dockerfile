@@ -15,6 +15,7 @@ RUN apt-get clean \
   && cd /var/www \
   && unzip /var/www/webtrees-2.0.0.zip \
   && mv webtrees/* . \
+  && chown -R www-data:www-data * \
   && rmdir webtrees \
   && rm webtrees-2.0.0.zip \
   && chmod a+rwx /var/www/data
