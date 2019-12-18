@@ -7,13 +7,11 @@ Webtrees is an open source web server application that renders genealogy data fr
 ## Up and running in 5 minutes:
 
 ```bash
-git clone git@github.com:richardeigenmann/Webtrees-Docker.git
-cd Webtrees-Docker
 docker network create Webtrees-Net
 docker volume create Webtrees-Data
 # THINK: do you want default passwords on the db?
 # if not, modify them in the file docker-compose.yml
-# under 'environmnet'!
+# under 'environment'!
 docker-compose up -d --build
 ```
 
@@ -44,14 +42,10 @@ In particular to: https://wiki.webtrees.net/en/Users_Guide
 ## Cleaning up:
 
 ```bash
-docker stop Webtrees_webserver
-docker stop Webtrees_php_fpm
-docker stop Webtrees_mysql_db
-docker rm Webtrees_webserver
-docker rm Webtrees_php_fpm
-docker rm Webtrees_mysql_db
+docker-compose down
 docker network rm Webtrees-Net
 docker volume rm Webtrees-Data
+docker volume prune
 ```
 
 ## Securing my data:
