@@ -31,8 +31,8 @@ services:
 
     database:
         container_name: Webtrees_mysql_db
-        image: mysql/mysql-server:latest
-        command: mysqld --user=root --verbose
+        image: mysql/mysql-server:8.0.18
+        command: --default-authentication-plugin=mysql_native_password
         restart: always
         environment:
             MYSQL_DATABASE: "webtrees"
